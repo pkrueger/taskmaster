@@ -48,7 +48,10 @@
         <!-- SECTION TASK LIST SELECTION -->
         <div class="row mb-5">
           <div class="col-12">
-            <form onsubmit="" class="d-flex flex-wrap gap-4 align-items-start">
+            <form
+              onsubmit="app.taskListsController.createList()"
+              class="d-flex flex-wrap gap-4 align-items-start"
+            >
               <div class="mb-3">
                 <input
                   type="text"
@@ -77,7 +80,7 @@
           </div>
         </div>
         <!-- SECTION ACTUAL AREA FOR THE LISTS -->
-        <div class="row">
+        <div id="taskLists" class="row">
           <div class="col-lg-4 p5 mb-3">
             <div class="card bg-white task-list shadow">
               <div
