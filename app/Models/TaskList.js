@@ -62,12 +62,13 @@ export class TaskList {
               required
             />
             <button
-              type="submit"
-              class="icon-submit-container"
-              style="color: ${this.taskListColor}"
+            type="submit"
+            class="icon-submit-container"
+            style="color: ${this.taskListColor}"
             >
-              <i class="fa-regular fa-square-plus task-submit"></i>
+            <i class="fa-regular fa-square-plus task-submit"></i>
             </button>
+            <input type="hidden" name="taskColor" value="${this.taskListColor}"/>
           </form>
         </div>
       </div>
