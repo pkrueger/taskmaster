@@ -30,7 +30,7 @@ export class Task {
         </div>
         <i
           class="fa-regular fa-square-minus task-delete-button font-black-transparent selectable"
-          onclick="app.taskController.removeTask(${this.taskID})"
+          onclick="app.taskController.removeTask('${this.taskID}')"
           style="color: ${this.taskColor}"
         ></i>
       </div>
