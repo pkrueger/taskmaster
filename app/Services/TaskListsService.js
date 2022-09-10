@@ -1,6 +1,11 @@
+import { appState } from "../AppState.js";
+import { TaskList } from "../Models/TaskList.js";
+import { saveState } from "../Utils/Store.js";
+
 class TaskListsService {
   createTaskList(formData) {
-    throw new Error("Method not implemented.");
+    appState.taskLists = [...appState.taskLists, new TaskList(formData)];
+    saveState("taskLists", appState.taskLists);
   }
 }
 

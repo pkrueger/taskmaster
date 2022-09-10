@@ -4,13 +4,8 @@ import { isValidProp } from "./Utils/isValidProp.js";
 import { loadState } from "./Utils/Store.js";
 
 class AppState extends EventEmitter {
-  taskLists = [
-    new TaskList({
-      taskListName: "Chores",
-      taskListColor: "#9141AC",
-      taskListID: "sdaf;kj2",
-    }),
-  ];
+  taskLists = loadState("taskLists", TaskList);
+  defaultColor = "#ed333b";
 }
 
 export const appState = new Proxy(new AppState(), {

@@ -58,7 +58,7 @@ export class TaskList {
               placeholder="New task"
               minlength="3"
               maxlength="25"
-              style="color: ${this.taskListColor}"
+              style="--task-color: ${this.taskListColor}"
               required
             />
             <button

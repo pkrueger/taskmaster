@@ -15,6 +15,7 @@ function _drawTaskLists() {
 export class TaskListsController {
   constructor() {
     appState.on("taskLists", _drawTaskLists);
+    _drawTaskLists();
   }
 
   createTaskList() {
@@ -24,8 +25,22 @@ export class TaskListsController {
       let formData = getFormData(form);
       taskListsService.createTaskList(formData);
       form.reset();
+      document
+        .querySelector(":root")
+        .style.setProperty("--taskListInputColor", appState.defaultColor);
     } catch (error) {
       console.error("createTaskList", error);
     }
+  }
+
+  handleOnInput(event) {
+    let root = document.querySelector(":root");
+
+    console.log(event.target.value);
+    root.style.setProperty("--taskListInputColor", event.target.value);
+  }
+
+  loadDefaultColor() {
+    document.getElementById("taskListColorInput").value = appState.defaultColor;
   }
 }
