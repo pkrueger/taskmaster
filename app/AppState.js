@@ -5,6 +5,8 @@ import { loadState } from "./Utils/Store.js";
 
 class AppState extends EventEmitter {
   taskLists = loadState("taskLists", TaskList);
+
+  tasks = [];
   defaultColor = "#ed333b";
 }
 

@@ -1,3 +1,4 @@
+import { appState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
 
 export class TaskList {
@@ -28,7 +29,7 @@ export class TaskList {
         </div>
 
         <div class="card-body d-flex flex-column justify-content-between">
-          <div class="tasks">
+          <div id="tasks">
             <div
               class="task d-flex align-items-center justify-content-between mb-2"
             >
@@ -69,10 +70,28 @@ export class TaskList {
             <i class="fa-regular fa-square-plus task-submit"></i>
             </button>
             <input type="hidden" name="taskColor" value="${this.taskListColor}"/>
+            <input type="hidden" name="taskListID" value="${this.taskListID}" />
           </form>
         </div>
       </div>
     </div>
     `;
+  }
+
+  get Tasks() {
+    let tasks = appState.tasks.filter(
+      (task) => task.taskListID == this.taskListID
+    );
+    return tasks;
+  }
+
+  get TasksTemplate() {
+    let template = "";
+
+    for (let task of this.Tasks) {
+      template += task.TaskTemplate;
+    }
+
+    return template;
   }
 }

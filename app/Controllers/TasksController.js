@@ -1,1 +1,3 @@
-export class TasksController {}
+export class TasksController {
+  constructor() {}
+}
