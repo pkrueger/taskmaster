@@ -39,16 +39,22 @@ body {
 .task-list-submit-button {
   font-size: 1.3rem;
   color: var(--taskListInputColor);
+  opacity: 0.6;
 }
 
 .task-list-submit-button:hover {
   color: var(--taskListInputColor);
   border: 0.1rem solid var(--taskListInputColor);
+  cursor: pointer;
 }
 
 .task-list-submit-button:focus {
   color: var(--taskListInputColor);
   border: 0.1rem solid var(--taskListInputColor);
+}
+
+.task-list-submit-button:active {
+  filter: brightness(70%);
 }
 
 .color-selector {
