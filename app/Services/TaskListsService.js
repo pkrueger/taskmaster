@@ -7,6 +7,13 @@ class TaskListsService {
     appState.taskLists = [...appState.taskLists, new TaskList(formData)];
     saveState("taskLists", appState.taskLists);
   }
+
+  deleteTaskList(taskListID) {
+    appState.taskLists = appState.taskLists.filter(
+      (list) => list.taskListID != taskListID
+    );
+    saveState("taskLists", appState.taskLists);
+  }
 }
 
 export const taskListsService = new TaskListsService();

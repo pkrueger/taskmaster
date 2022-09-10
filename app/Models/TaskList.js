@@ -21,7 +21,7 @@ export class TaskList {
         >
           <i
             class="fa-regular fa-square-minus top-delete-button font-black-transparent selectable"
-            onclick=""
+            onclick="app.taskListsController.deleteTaskList('${this.taskListID}', '${this.taskListColor}')"
           ></i>
           <h3 class="font-black-transparent no-select">${this.taskListName}</h3>
           <h6 class="font-black-transparent no-select">x tasks left</h6>

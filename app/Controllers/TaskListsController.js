@@ -2,6 +2,7 @@
 import { appState } from "../AppState.js";
 import { taskListsService } from "../Services/TaskListsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
+import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 
 function _drawTaskLists() {
@@ -30,6 +31,13 @@ export class TaskListsController {
         .style.setProperty("--taskListInputColor", appState.defaultColor);
     } catch (error) {
       console.error("createTaskList", error);
+    }
+  }
+
+  async deleteTaskList(taskListID, color) {
+    if (await Pop.confirm(color)) {
+      taskListsService.deleteTaskList(taskListID);
+      console.log("why");
     }
   }
 
