@@ -16,6 +16,7 @@ function _drawTaskLists() {
 export class TaskListsController {
   constructor() {
     appState.on("taskLists", _drawTaskLists);
+    appState.on("tasks", _drawTaskLists);
     _drawTaskLists();
   }
 
@@ -26,9 +27,7 @@ export class TaskListsController {
       let formData = getFormData(form);
       taskListsService.createTaskList(formData);
       form.reset();
-      document
-        .querySelector(":root")
-        .style.setProperty("--taskListInputColor", appState.defaultColor);
+      this.loadDefaultColor();
     } catch (error) {
       console.error("createTaskList", error);
     }
@@ -37,7 +36,6 @@ export class TaskListsController {
   async deleteTaskList(taskListID, color) {
     if (await Pop.confirm(color)) {
       taskListsService.deleteTaskList(taskListID);
-      console.log("why");
     }
   }
 
@@ -50,5 +48,8 @@ export class TaskListsController {
 
   loadDefaultColor() {
     document.getElementById("taskListColorInput").value = appState.defaultColor;
+    document
+      .querySelector(":root")
+      .style.setProperty("--taskListInputColor", appState.defaultColor);
   }
 }

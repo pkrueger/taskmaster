@@ -30,28 +30,9 @@ export class TaskList {
 
         <div class="card-body d-flex flex-column justify-content-between">
           <div id="tasks">
-            <div
-              class="task d-flex align-items-center justify-content-between mb-2"
-            >
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input me-3"
-                  type="checkbox"
-                  name="isTaskComplete"
-                  value="option1"
-                />
-                <label class="form-check-label" for="isTaskComplete"
-                  >This is your task</label
-                >
-              </div>
-              <i
-                class="fa-regular fa-square-minus task-delete-button font-black-transparent selectable"
-                onclick=""
-                style="color: ${this.taskListColor}"
-              ></i>
-            </div>
+            ${this.TasksTemplate}
           </div>
-          <form class="d-flex justify-content-between" onsubmit="">
+          <form class="d-flex justify-content-between" onsubmit="app.tasksController.createTask()">
             <input
               type="text"
               class="task-name-input"

@@ -1,3 +1,4 @@
+import { Task } from "./Models/Task.js";
 import { TaskList } from "./Models/TaskList.js";
 import { EventEmitter } from "./Utils/EventEmitter.js";
 import { isValidProp } from "./Utils/isValidProp.js";
@@ -6,7 +7,7 @@ import { loadState } from "./Utils/Store.js";
 class AppState extends EventEmitter {
   taskLists = loadState("taskLists", TaskList);
 
-  tasks = [];
+  tasks = loadState("tasks", Task);
   defaultColor = "#ed333b";
 }
 
