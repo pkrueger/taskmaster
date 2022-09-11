@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { appState } from "../AppState.js";
 import { tasksService } from "../Services/TasksService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
@@ -27,7 +28,7 @@ export class TasksController {
     }
   }
 
-  toggleIsComplete(taskID) {
-    tasksService.toggleIsComplete(taskID);
+  toggleIsComplete(taskID, taskListID) {
+    tasksService.toggleIsComplete(taskID, taskListID);
   }
 }

@@ -39,6 +39,8 @@ export class TaskListsController {
     }
   }
 
+  showToast() {}
+
   handleOnInput(event) {
     let root = document.querySelector(":root");
 

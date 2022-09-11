@@ -25,7 +25,9 @@ export class Task {
             class="form-check-input me-3"
             type="checkbox"
             name="isComplete"
-            onchange="app.tasksController.toggleIsComplete('${this.taskID}')"
+            onchange="app.tasksController.toggleIsComplete('${this.taskID}', '${
+      this.taskListID
+    }')"
             ${this.isComplete ? "checked" : ""}
           />
           <label class="form-check-label task-text" for="isComplete" ${

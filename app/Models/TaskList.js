@@ -5,12 +5,13 @@ import { Pop } from "../Utils/Pop.js";
 export class TaskList {
   /**
    *
-   * @param {{taskListID:string, taskListName:string, taskListColor:string}} data
+   * @param {{taskListID:string, taskListName:string, taskListColor:string, showToast: boolean}} data
    */
   constructor(data) {
     this.taskListID = data.taskListID || generateId();
     this.taskListName = data.taskListName;
     this.taskListColor = data.taskListColor;
+    this.showToast = data.showToast || true;
   }
 
   get ListTemplate() {
@@ -89,16 +90,6 @@ export class TaskList {
       if (!task.isComplete) {
         counter++;
       }
-    }
-    if (!counter && this.Tasks.length > 0) {
-      Pop.toast(
-        this.taskListColor,
-        "Good work! You completed a list!",
-        "success",
-        "top-end",
-        3000,
-        false
-      );
     }
     return counter;
   }
