@@ -26,8 +26,12 @@ export class Task {
             onchange="app.tasksController.toggleIsComplete('${this.taskID}')"
             ${this.isComplete ? "checked" : ""}
           />
-          <label class="form-check-label" for="isComplete" ${
-            this.isComplete ? "style='text-decoration: line-through;'" : ""
+          <label class="form-check-label task-text" for="isComplete" ${
+            this.isComplete
+              ? "style='text-decoration: line-through; text-decoration-color:" +
+                this.taskColor +
+                "'"
+              : ""
           }
             >${this.taskName}</label
           >
