@@ -51,6 +51,7 @@ export class Pop {
    */
   // @ts-ignore
   static toast(
+    color,
     title = "Warning!",
     icon = "warning",
     position = "top-end",
@@ -61,6 +62,7 @@ export class Pop {
     Swal.fire({
       title,
       icon,
+      iconColor: color,
       position,
       timer,
       timerProgressBar: progressBar,

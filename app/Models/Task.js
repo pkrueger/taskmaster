@@ -15,7 +15,7 @@ export class Task {
 
   get TaskTemplate() {
     return /*html*/ `
-      <div
+      <li
         class="task d-flex align-items-center justify-content-between mb-2"
       >
         <div class="form-check form-check-inline" style="color:${
@@ -45,7 +45,7 @@ export class Task {
     }')"
           style="color: ${this.taskColor}"
         ></i>
-      </div>
+      </li>
     `;
   }
 }

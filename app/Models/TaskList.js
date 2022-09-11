@@ -1,5 +1,6 @@
 import { appState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
+import { Pop } from "../Utils/Pop.js";
 
 export class TaskList {
   /**
@@ -22,16 +23,20 @@ export class TaskList {
         >
           <i
             class="fa-regular fa-square-minus top-delete-button font-black-transparent selectable"
-            onclick="app.taskListsController.deleteTaskList('${this.taskListID}', '${this.taskListColor}')"
+            onclick="app.taskListsController.deleteTaskList('${
+              this.taskListID
+            }', '${this.taskListColor}')"
           ></i>
           <h3 class="font-black-transparent no-select">${this.taskListName}</h3>
-          <h6 class="font-black-transparent no-select">x tasks left</h6>
+          <h6 class="font-black-transparent no-select">${
+            this.TasksIncomplete
+          } task${this.TasksIncomplete == 1 ? "" : "s"} left</h6>
         </div>
 
         <div class="card-body d-flex flex-column justify-content-between">
-          <div id="tasks">
+          <ul id="tasks">
             ${this.TasksTemplate}
-          </div>
+          </ul>
           <form class="d-flex justify-content-between" onsubmit="app.tasksController.createTask()">
             <input
               type="text"
@@ -50,7 +55,9 @@ export class TaskList {
             >
             <i class="fa-regular fa-square-plus task-submit"></i>
             </button>
-            <input type="hidden" name="taskColor" value="${this.taskListColor}"/>
+            <input type="hidden" name="taskColor" value="${
+              this.taskListColor
+            }"/>
             <input type="hidden" name="taskListID" value="${this.taskListID}" />
           </form>
         </div>
@@ -74,5 +81,25 @@ export class TaskList {
     }
 
     return template;
+  }
+
+  get TasksIncomplete() {
+    let counter = 0;
+    for (let task of this.Tasks) {
+      if (!task.isComplete) {
+        counter++;
+      }
+    }
+    if (!counter) {
+      Pop.toast(
+        this.taskListColor,
+        "Good work! You completed a list!",
+        "success",
+        "top-end",
+        3000,
+        false
+      );
+    }
+    return counter;
   }
 }
