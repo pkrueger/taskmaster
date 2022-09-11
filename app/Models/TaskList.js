@@ -90,16 +90,6 @@ export class TaskList {
         counter++;
       }
     }
-    if (!counter && this.Tasks.length > 0) {
-      Pop.toast(
-        this.taskListColor,
-        "Good work! You completed a list!",
-        "success",
-        "top-end",
-        3000,
-        false
-      );
-    }
     return counter;
   }
 }
