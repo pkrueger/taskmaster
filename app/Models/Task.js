@@ -18,7 +18,9 @@ export class Task {
       <div
         class="task d-flex align-items-center justify-content-between mb-2"
       >
-        <div class="form-check form-check-inline">
+        <div class="form-check form-check-inline" style="color:${
+          this.taskColor
+        }">
           <input
             class="form-check-input me-3"
             type="checkbox"

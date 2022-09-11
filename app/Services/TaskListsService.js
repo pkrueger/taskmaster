@@ -4,7 +4,7 @@ import { saveState } from "../Utils/Store.js";
 
 class TaskListsService {
   createTaskList(formData) {
-    appState.taskLists = [...appState.taskLists, new TaskList(formData)];
+    appState.taskLists = [new TaskList(formData), ...appState.taskLists];
     saveState("taskLists", appState.taskLists);
   }
 

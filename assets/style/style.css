@@ -1,6 +1,7 @@
 :root {
   --theme-white: rgb(245, 245, 245);
   --taskListInputColor: #ed333b;
+  --black-text-semitransparent: rgba(0, 0, 0, 0.75);
 }
 
 body {
@@ -19,6 +20,39 @@ body {
   font-size: 5rem;
   font-family: "Concert One", cursive;
   font-weight: 100;
+  opacity: 0.9;
+}
+
+.title-text-t {
+  color: #ed333b;
+}
+
+.title-text-a {
+  color: #62a0ea;
+}
+
+.title-text-s {
+  color: #57e389;
+}
+
+.title-text-k {
+  color: #9141ac;
+}
+
+.title-text-m {
+  color: #ed333b;
+}
+
+.title-text-t2 {
+  color: #f8e45c;
+}
+
+.title-text-e {
+  color: #62a0ea;
+}
+
+.title-text-r {
+  color: #9141ac;
 }
 
 .task-list-name-input {

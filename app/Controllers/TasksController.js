@@ -20,7 +20,9 @@ export class TasksController {
   }
 
   async deleteTask(taskID, color) {
-    if (await Pop.confirm(color)) {
+    if (
+      await Pop.confirm(color, "Are you sure?", "This will delete your task!")
+    ) {
       tasksService.deleteTask(taskID);
     }
   }
